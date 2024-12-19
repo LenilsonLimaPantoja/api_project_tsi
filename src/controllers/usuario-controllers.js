@@ -364,9 +364,9 @@ exports.postUsuarioLoginAluno = async (req, res, next) => {
 
             res.cookie('token', tokenJWT, {
                 httpOnly: true,
-                secure: false, // Altere para true se estiver usando HTTPS
-                maxAge: 48 * 60 * 60 * 1000, // 48 horas
-                sameSite: 'Lax', // Ou 'None' se necessário
+                secure: false,
+                sameSite: "Lax",
+                maxAge: 48 * 60 * 60 * 1000,
             });
 
             const userWithoutPassword = { ...resultResponseEmailUser[0], senha: undefined, token: tokenJWT };
@@ -450,9 +450,9 @@ exports.postUsuarioLoginAdm = async (req, res, next) => {
             // Armazena o token JWT no cookie
             res.cookie('token', token, {
                 httpOnly: true,
-                secure: false, // Altere para true se estiver usando HTTPS
-                maxAge: 48 * 60 * 60 * 1000, // 48 horas
-                sameSite: 'Lax', // Ou 'None' se necessário
+                secure: false,
+                sameSite: "Lax", // Somente em produção, se HTTPS estiver habilitado
+                maxAge: 48 * 60 * 60 * 1000, // Expira em 48 horas
             });
 
             // Remover o campo 'senha' de cada objeto
