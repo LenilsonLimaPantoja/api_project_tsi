@@ -364,7 +364,7 @@ exports.postUsuarioLoginAluno = async (req, res, next) => {
 
             res.cookie('token', tokenJWT, {
                 httpOnly: true,
-                secure: process.env.JWT_KEY === 'production',
+                secure: false,
                 maxAge: 48 * 60 * 60 * 1000,
             });
 
@@ -449,7 +449,7 @@ exports.postUsuarioLoginAdm = async (req, res, next) => {
             // Armazena o token JWT no cookie
             res.cookie('token', token, {
                 httpOnly: true,
-                secure: process.env.JWT_KEY === 'production', // Somente em produção, se HTTPS estiver habilitado
+                secure: false, // Somente em produção, se HTTPS estiver habilitado
                 maxAge: 48 * 60 * 60 * 1000, // Expira em 48 horas
             });
 
